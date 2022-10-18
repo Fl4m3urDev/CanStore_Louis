@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Can Store</title>
   <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
   <link href="can-style.css" rel="stylesheet">
@@ -13,37 +14,37 @@
 
 <body>
   <header>
-    <h1>Le jardin en boite</h1>
+    <h1>Au jardin en boite</h1>
   </header>
   <div>
     <aside>
-      <form name="choix">
+      <form>
         <div>
-          <label for="categorie">Choisissez une categorie :</label>
-          <select name="categorie">
-            <option selected value="0">Tous</option>
-            <option value="1">Légumes</option>
-            <option value="2">Soupes</option>
-            <option value="3">Viandes</option>
-          </select>
-          <br>
-          <label for="nutri">Choisissez un nutri-score :</label>
-          <select name="nutri">
-            <option selected value="0">Tous</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
-            <option value="E">E</option>
-            <option value="F">F</option>
+          <label for="category">Choisissez une catégorie :</label>
+          <select id="category">
+            <option selected="">Tous</option>
+            <option>Legumes</option>
+            <option>Viande</option>
+            <option>Soupe</option>
           </select>
         </div>
         <div>
-          <label for="searchTerm">Entrez une recherche :</label>
-          <input type="text" id="searchTerm" placeholder="Soupe de carottes">
+          <label for="nutriscore">Choisissez un nutriscore :</label>
+          <select id="nutriscore">
+            <option selected="">Tous</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+            <option>D</option>
+            <option>E</option>
+          </select>
         </div>
         <div>
-          <button>Voir le résultat</button>
+          <label for="searchTerm">Entrez le terme de recherche:</label>
+          <input type="text" id="searchTerm" placeholder="Exemple : haricots">
+        </div>
+        <div>
+          <button>Filtrer les résultats</button>
         </div>
       </form>
     </aside>
@@ -56,13 +57,13 @@
 
       A partir des fichiers du repository, vous êtes chargé de :<br>
     <ol>
-      <li>Après lecture du script js, remplacer les commentaires pour une meilleure compréhension (plus succints et en français), simplifier et adapter le code. Adapter la page html pour le public
+      <li>Après lecture du code, remplacer les commentaires du JS pour une meilleure compréhension (plus succints et en français) puis adapter la page html pour le public
         français. La boutique s’appellera : "Au jardin en boite".</li>
       <li> La méthode d’accès aux images est : function fetchBlob(product). Supprimer cette fonction puis utiliser
         l’url de l’image transmise par le JSON pour paramétrer l’attribut « src » des images dans la function
         showProduct(objectURL, product) qui ne prendra donc plus qu’un argument « product ».</li>
       <li> Adapter le script pour faire fonctionner la page de présentation des produits avec le fichier JSON joint : «
-        produits.json ». La loi Française oblige le vendeur à afficher le « nutri-score » du produit. Mettre en œuvre cet ajout et la possibilité de rechercher un produit par le 
+        produits.json ». La loi Française oblige le vendeur à afficher le « nutri-score » du produit. Mettre en œuvre cet ajout.
       </li>
       <li>Le client souhaite un nouveau look plus moderne, nature et une page responsive…</li>
     </ol>
