@@ -1,0 +1,60 @@
+html {
+    background-image:
+      url('https://www.freepnglogos.com/uploads/corn-png/corn-the-best-mexican-fresh-produce-for-global-exports-5.png'),
+      url('https://www.freepnglogos.com/uploads/food-png/high-resolution-food-clipart-collection-19.png'),
+      url('https://www.freepnglogos.com/uploads/fruits-png/fruits-vegetables-artichoke-vector-graphic-pixabay-35.png'),
+      url('https://www.freepnglogos.com/uploads/food-png/food-png-transparent-images-png-only-28.png');
+    background-repeat: repeat-x;
+    background-position:
+      0% 35%,
+      0% 85%,
+      0% 130%,
+      0% 170%;
+    background-size:
+      250px,
+      250px,
+      250px,
+      250px;
+    animation: 25s para infinite linear;
+  }
+  
+  @keyframes para {
+    0% {
+      background-position:
+        0% 35%,
+        0% 85%,
+        0% 130%,
+        0% 170%;
+    }
+  
+    100% {
+      background-position:
+        100% 35%,
+        -100% 85%,
+        100% 130%,
+        -100% 170%;
+    }
+  }
+
+  body {
+    font-family: 'Raleway', sans-serif;
+  }
+
+  h1, h2 {
+    font-family: 'Cherry Swash', cursive;
+  }
+
+  .legumes {
+    background: rgb(25, 80, 4) url(icons/vegetable.png) no-repeat 2px 2px;
+    background-size: 24px 24px;
+  }
+  
+  .viande {
+    background: rgb(82, 143, 82) url(icons/meat.png) no-repeat 2px 2px;
+    background-size: 24px 24px;
+  }
+  
+  .soupe {
+    background: rgb(26, 126, 48) url(icons/soup.png) no-repeat 2px 2px;
+    background-size: 24px 24px;
+  }

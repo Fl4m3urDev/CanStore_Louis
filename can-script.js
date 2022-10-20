@@ -127,12 +127,17 @@ function initialize() {
     var url = 'images/' + product.image;
     var section = document.createElement('section');
     var heading = document.createElement('h2');
+    heading.setAttribute("class", "fs-5 text-warning text-right w-25", style="--bs-text-opacity: .5;");
     var para = document.createElement('p');
+    para.setAttribute("class", "w-50 h-50 rounded-4 text-center fs-5 text-warning", style="--bs-text-opacity: .5;");
     var image = document.createElement('img');
+    image.setAttribute("class", "d-block");
     var txtnutriscore = document.createElement('h3')
+    txtnutriscore.setAttribute("class", "w-100 mb-1 text-warning text-center");
     var nutriscore = document.createElement('span')
+    nutriscore.setAttribute("class", "text-white p-2 rounded-2");
     
-    section.setAttribute('class', product.type);
+    section.setAttribute('class', "w-25 h-25 mb-2", product.type);
 
     heading.textContent = product.nom.replace(product.nom.charAt(0), product.nom.charAt(0).toUpperCase());
 
