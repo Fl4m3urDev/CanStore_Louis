@@ -16,6 +16,30 @@ fetch('produits.json').then(function (response) {
     console.log('La demande de requête pour produits.json a échoué ' + response.status + ': ' + response.statusText);
   }
 });
+// document.getElementById('searchTerm').addEventListener("keyup", function(event){autocompleteMatch(event)});
+
+// function autocompleteMatch(event) {
+//   var input = event.target; //recuperation de l'element input
+// 	var saisie = input.value; //recuperation de la saisie
+//   var min_characters = 1; // minimum de caractères de la saisie
+//   if (!isNaN(saisie) || saisie.length < min_characters ) { 
+//     return [];
+//   }
+//   traiterReponse(saisie);
+// }
+
+// function traiterReponse(saisie)
+// {
+// 	var listeValeurs = document.getElementById('listeValeurs');
+//   listeValeurs.innerHTML = ""; //mise à blanc des options
+//   var reg = new RegExp(saisie,"i");
+//   let terms = search_terms.filter(term => term.match(reg)); //recup des termes qui match avec la saisie
+//   	  for (i=0; i<terms.length; i++) { //création des options
+//         var option = document.createElement('option');
+//                     option.value = terms[i];
+//                     listeValeurs.appendChild(option);
+//   }
+// 	  }
 
 // fonction principal permettant d'initialiser les produits y compris la recherche et le filtrage...
 
@@ -127,17 +151,17 @@ function initialize() {
     var url = 'images/' + product.image;
     var section = document.createElement('section');
     var heading = document.createElement('h2');
-    heading.setAttribute("class", "fs-5 text-warning text-right w-25", style="--bs-text-opacity: .5;");
+    heading.setAttribute("class", "d-flex justify-content-center fs-6 text-warning");
     var para = document.createElement('p');
-    para.setAttribute("class", "w-50 h-50 rounded-4 text-center fs-5 text-warning", style="--bs-text-opacity: .5;");
+    para.setAttribute("class", "d-flex position-absolute text-warning p-2 pt-3 pb-3 bg-success border border-warning rounded-circle");
     var image = document.createElement('img');
-    image.setAttribute("class", "d-block");
+    image.setAttribute("class", "mb-2");
     var txtnutriscore = document.createElement('h3')
-    txtnutriscore.setAttribute("class", "w-100 mb-1 text-warning text-center");
+    txtnutriscore.setAttribute("class", "fs-5 text-warning ml-3");
     var nutriscore = document.createElement('span')
-    nutriscore.setAttribute("class", "text-white p-2 rounded-2");
+    nutriscore.setAttribute("class", "text-dark");
     
-    section.setAttribute('class', "w-25 h-25 mb-2", product.type);
+    section.setAttribute("class", product.type);
 
     heading.textContent = product.nom.replace(product.nom.charAt(0), product.nom.charAt(0).toUpperCase());
 
