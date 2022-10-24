@@ -16,30 +16,47 @@ fetch('produits.json').then(function (response) {
     console.log('La demande de requête pour produits.json a échoué ' + response.status + ': ' + response.statusText);
   }
 });
-// document.getElementById('searchTerm').addEventListener("keyup", function(event){autocompleteMatch(event)});
 
-// function autocompleteMatch(event) {
-//   var input = event.target; //recuperation de l'element input
-// 	var saisie = input.value; //recuperation de la saisie
-//   var min_characters = 1; // minimum de caractères de la saisie
-//   if (!isNaN(saisie) || saisie.length < min_characters ) { 
-//     return [];
-//   }
-//   traiterReponse(saisie);
-// }
+// recuperation de l'ID "searchTerm" qui fera appel à la fonction autocompleteMatch ayant un évènement raccordé.
 
-// function traiterReponse(saisie)
-// {
-// 	var listeValeurs = document.getElementById('listeValeurs');
-//   listeValeurs.innerHTML = ""; //mise à blanc des options
-//   var reg = new RegExp(saisie,"i");
-//   let terms = search_terms.filter(term => term.match(reg)); //recup des termes qui match avec la saisie
-//   	  for (i=0; i<terms.length; i++) { //création des options
-//         var option = document.createElement('option');
-//                     option.value = terms[i];
-//                     listeValeurs.appendChild(option);
-//   }
-// 	  }
+document.getElementById('searchTerm').addEventListener("keyup", function (event) { autocompleteMatch(event) });
+
+/* La Fonction "autocompleteMatch" permettant d'affecter la saisie des caractères écrit (récupéré sur la
+  barre de saisie) puis de chercher la liste des mots complété dans la base JSON appelant aussi
+  la fonction "traiterReponse" */
+
+function autocompleteMatch(event) {
+  var input = event.target;
+  var saisie = input.value;
+  var min_characters = 1;
+  if (!isNaN(saisie) || saisie.length < min_characters) {
+    return [];
+  }
+  fetch('produits.json').then(function (response) {
+    if (response.ok) {
+      response.json().then(function (json) {
+        traiterReponse(json,saisie);
+      });
+    } else {
+      console.log('La demande de requête pour produits.json a échoué ' + response.status + ': ' + response.statusText);
+    }
+  });
+}
+
+/* La Fonction "traiterReponse" permettant de traiter la réponse de la saisi effectué précédement en affichant
+les termes proposé et écrit dans la base JSON  */
+
+function traiterReponse(data, saisie) {
+  var listeValeurs = document.getElementById('listeValeurs');
+  listeValeurs.innerHTML = "";
+  var reg = new RegExp(saisie, "i");
+  let terms = data.filter(term => term.nom.match(reg));
+  for (i = 0; i < terms.length; i++) {
+    var option = document.createElement('option');
+    option.value = terms[i].nom;
+    listeValeurs.appendChild(option);
+  }
+}
 
 // fonction principal permettant d'initialiser les produits y compris la recherche et le filtrage...
 
@@ -66,7 +83,13 @@ function initialize() {
 
   // La recherche au click sur le bonton afficher qui appelle "selectCategory".
 
-  searchBtn.onclick = selectCategory; 
+  searchBtn.onclick = selectCategory;
+
+  // selectCategory.addEventListener('click', function (event) {
+  //     event.preventDefault();
+  //     document.forms[0].reset()
+  //     updateDisplay()
+  //   });
 
   // Les elements seront encapsulé dans la variable "categoryGroup" puis dans les conditions des filtres.
 

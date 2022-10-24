@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Can Store</title>
+  <title>Au jardin de Louis</title>
   <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link href="can-style.css" rel="stylesheet">
@@ -19,7 +19,7 @@
   </header>
   <div class="d-flex flex-row col-11">
     <aside class="d-flex flex-column p-2 col-4 bg-warning bg-opacity-50 border border-top-0 border-bottom-0 border-start-0 border-dark text-dark">
-      <form class="d-flex flex-column">
+      <form class="d-flex flex-column" autocomplete="off">
         <div>
           <label class="mb-1" for="category">Choisissez une catégorie :</label>
           <select class="w-75 text-warning bg-success" id="category">
@@ -42,7 +42,7 @@
         </div>
         <div>
           <label class="d-block" for="searchTerm">Entrez le terme de recherche:</label>
-          <input class="d-block w-75 p-2 text-warning bg-success" type="text" id="searchTerm" list="listeValeurs" placeholder="Exemple : haricots">
+          <input class="d-block w-75 p-2 text-warning bg-success" type="text" name="searchTerm" id="searchTerm" list="listeValeurs" placeholder="Exemple : haricots">
           <datalist id="listeValeurs">
           </datalist>
         </div>
