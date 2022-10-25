@@ -6,6 +6,7 @@ var products;
 
 // la fonction "fetch" permet d'appeler le fichier (JSON) et permet d'eviter les erreurs.
 
+// function addDonnee() {
 fetch('produits.json').then(function (response) {
   if (response.ok) {
     response.json().then(function (json) {
@@ -16,6 +17,7 @@ fetch('produits.json').then(function (response) {
     console.log('La demande de requête pour produits.json a échoué ' + response.status + ': ' + response.statusText);
   }
 });
+// }
 
 // recuperation de l'ID "searchTerm" qui fera appel à la fonction autocompleteMatch ayant un évènement raccordé.
 
@@ -85,11 +87,12 @@ function initialize() {
 
   searchBtn.onclick = selectCategory;
 
-  // selectCategory.addEventListener('click', function (event) {
-  //     event.preventDefault();
-  //     document.forms[0].reset()
-  //     updateDisplay()
-  //   });
+  // Reset
+  // searchBtn.addEventListener('click', function (event) {
+  //   event.preventDefault();
+  //   document.forms[0].reset()
+  //   updateDisplay();
+  // });
 
   // Les elements seront encapsulé dans la variable "categoryGroup" puis dans les conditions des filtres.
 
@@ -174,13 +177,15 @@ function initialize() {
     var url = 'images/' + product.image;
     var section = document.createElement('section');
     var heading = document.createElement('h2');
-    heading.setAttribute("class", "d-flex justify-content-center fs-6 text-warning");
+    heading.setAttribute("class", "d-flex justify-content-center mt-1 fs-6 text-warning");
     var para = document.createElement('p');
     para.setAttribute("class", "d-flex position-absolute text-warning p-2 pt-3 pb-3 bg-success border border-warning rounded-circle");
     var image = document.createElement('img');
     image.setAttribute("class", "mb-2");
+    var button_acheter = document.createElement('button');
+    button_acheter.setAttribute("class", "d-grid w-75 mx-auto text-center btn btn-outline-dark bg-warning")
     var txtnutriscore = document.createElement('h3')
-    txtnutriscore.setAttribute("class", "fs-5 text-warning ml-3");
+    txtnutriscore.setAttribute("class", "fs-5 text-warning ms-1 mt-3");
     var nutriscore = document.createElement('span')
     nutriscore.setAttribute("class", "text-dark");
     
@@ -192,6 +197,8 @@ function initialize() {
 
     image.src = url;
     image.alt = product.nom;
+
+    button_acheter.textContent = "Acheter"
 
     /* variable "nutriscore" utilisé pour creer un text sur les produits +
     Condition pour mettre en couleur les nutriscores selon la lettre y compris son évaluation. */
@@ -221,6 +228,7 @@ function initialize() {
     section.appendChild(heading);
     section.appendChild(para);
     section.appendChild(image);
+    section.appendChild(button_acheter);
     section.appendChild(txtnutriscore)
     txtnutriscore.appendChild(nutriscore)
   }
