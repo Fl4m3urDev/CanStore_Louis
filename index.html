@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Au jardin de Louis</title>
+  <link rel="icon" type="image/png" href="icons/LeFeuDeLaMort.png">
   <link href="https://fonts.googleapis.com/css?family=Cherry+Swash|Raleway" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link href="can-style.css" rel="stylesheet">
@@ -17,21 +18,21 @@
   <header class="d-flex p-2 border border-start-0 border-dark bg-success bg-opacity-50 text-dark">
     <h1 class="text-center text-success w-100 pr-5 pl-5">Au jardin en boite</h1>
   </header>
-  <div class="d-flex flex-row col-11">
-    <aside class="d-flex flex-column p-2 col-4 bg-warning bg-opacity-50 border border-top-0 border-bottom-0 border-start-0 border-dark text-dark">
+  <div class="d-flex flex-column">
+    <aside class="d-flex flex-column p-2 bg-warning bg-opacity-50 border border-top-0 border-dark text-dark">
       <form class="d-flex flex-column" autocomplete="off">
-        <div>
+        <div class="d-flex flex-column">
           <label class="mb-1" for="category">Choisissez une catégorie :</label>
-          <select class="w-75 text-warning bg-success" id="category">
+          <select class="ms-1 w-50 text-warning bg-success" id="category">
             <option selected="">Tous</option>
             <option>Legumes</option>
             <option>Viande</option>
             <option>Soupe</option>
           </select>
         </div>
-        <div>
+        <div class="d-flex flex-column">
           <label class="mb-1" for="nutriscore">Choisissez un nutriscore :</label>
-          <select class="d-block w-75 text-warning bg-success" id="nutriscore">
+          <select class="ms-1 w-50 text-warning bg-success" id="nutriscore">
             <option selected="">Tous</option>
             <option>A</option>
             <option>B</option>
@@ -40,18 +41,18 @@
             <option>E</option>
           </select>
         </div>
-        <div>
-          <label class="d-block" for="searchTerm">Entrez le terme de recherche:</label>
-          <input class="d-block w-75 p-2 text-warning bg-success" type="text" name="searchTerm" id="searchTerm" list="listeValeurs" placeholder="Exemple : haricots">
+        <div class="d-flex flex-column">
+          <label class="mb-1" for="searchTerm">Entrez le terme de recherche:</label>
+          <input class="ms-1 w-50 p-2 text-warning bg-success" type="text" name="searchTerm" id="searchTerm" list="listeValeurs" placeholder="Exemple : haricots">
           <datalist id="listeValeurs">
           </datalist>
         </div>
         <div>
-          <button class="w-75 mt-1 p-3 text-warning bg-success rounded-4">Filtrer les résultats</button>
+          <button class="w-50 mt-1 p-3 text-warning bg-success rounded-4">Filtrer les résultats</button>
         </div>
       </form>
     </aside>
-    <main class="d-flex flex-row flex-wrap justify-content-around p-3 col-9">
+    <main class="d-flex flex-row flex-wrap justify-content-around p-3 col-12">
 
     </main>
   </div>
@@ -78,6 +79,8 @@
 </body>
 
 </html>
+
+<!-- Ancien Contenu -->
 
 <!-- <!DOCTYPE html>
 <html>

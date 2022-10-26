@@ -40,6 +40,13 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+h1 {
+  background: url(icons/boite-de-conserve.png) no-repeat 0%, url(icons/boite-de-conserve.png) no-repeat 100%;
+  background-size: 50px, 50px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
 h1, h2 {
   font-family: 'Cherry Swash', cursive;
 }
@@ -62,6 +69,29 @@ section {
   background: rgb(26, 126, 48) url(icons/soup.png) no-repeat 2px 2px;
   background-size: 24px 24px;
 }
+
+/* Pour les Mobiles */
+@media screen and (max-width: 1000px) {
+
+  html {
+    background-image: none;
+  }
+
+  div {
+    padding-bottom: 2%;
+  }
+
+  select, input, button {
+    height: 75px;
+  }
+
+}
+
+/*************************************************************************************************************/
+
+/*************
+Ancien Contenu
+*************/
 
 /* Générale */
 
@@ -333,17 +363,4 @@ form div {
   height: 50px;
   float: left;
   padding: 10px;
-} */
-
-/* Pour les Mobiles */
-@media screen and (max-width: 1000px) {
-
-  html {
-    background-image: none;
-  }
-
-}
-
-/* @media screen and (max-width: 640px) {
-
 } */
