@@ -51,10 +51,6 @@ h1, h2 {
   font-family: 'Cherry Swash', cursive;
 }
 
-section {
-  margin-bottom: 2%;
-}
-
 .legumes {
   background: rgb(25, 80, 4) url(icons/vegetable.png) no-repeat 2px 2px;
   background-size: 24px 24px;
@@ -77,14 +73,10 @@ section {
     background-image: none;
   }
 
-  div {
-    padding-bottom: 2%;
+  form {
+    flex-direction: column;
+    flex-wrap: wrap;
   }
-
-  select, input, .btn-reset {
-    height: 75px;
-  }
-
 }
 
 /*************************************************************************************************************/

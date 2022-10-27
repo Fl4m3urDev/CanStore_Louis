@@ -19,7 +19,7 @@ fetch('produits.json').then(function (response) {
 
 // recuperation de l'ID "searchTerm" qui fera appel à la fonction autocompleteMatch ayant un évènement raccordé.
 
-// document.getElementById('searchTerm').addEventListener("keyup", function (event) { autocompleteMatch(event) });
+document.getElementById('searchTerm').addEventListener("keyup", function (event) { autocompleteMatch(event) });
 
 /* La Fonction "autocompleteMatch" permettant d'affecter la saisie des caractères écrit (récupéré sur la
   barre de saisie) puis de chercher la liste des mots complété dans la base JSON appelant aussi
@@ -184,10 +184,10 @@ function initialize() {
 
   // Recherche le(s) produit(s) au click sur la barre de recherche (input).
 
-  // searchBtn.addEventListener('click', function (event) {
-  //   event.preventDefault();
-  //   document.forms[0].reset()
-  // });
+  searchBtn.addEventListener('click', function (event) {
+    event.preventDefault();
+    document.forms[0].reset()
+  });
 
   // fonction permettant d'ajouter les produits dans le html.
 
@@ -211,6 +211,7 @@ function initialize() {
     nutriscore.setAttribute("class", "text-dark");
     
     section.setAttribute("class", product.type);
+    section.classList.add("mb-4")
 
     heading.textContent = product.nom.replace(product.nom.charAt(0), product.nom.charAt(0).toUpperCase());
 
@@ -252,5 +253,7 @@ function initialize() {
     section.appendChild(button_acheter);
     section.appendChild(txtnutriscore)
     txtnutriscore.appendChild(nutriscore)
+    
   }
+
 }
