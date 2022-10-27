@@ -6,7 +6,6 @@ var products;
 
 // la fonction "fetch" permet d'appeler le fichier (JSON) et permet d'eviter les erreurs.
 
-// function addDonnee() {
 fetch('produits.json').then(function (response) {
   if (response.ok) {
     response.json().then(function (json) {
@@ -17,11 +16,10 @@ fetch('produits.json').then(function (response) {
     console.log('La demande de requête pour produits.json a échoué ' + response.status + ': ' + response.statusText);
   }
 });
-// }
 
 // recuperation de l'ID "searchTerm" qui fera appel à la fonction autocompleteMatch ayant un évènement raccordé.
 
-document.getElementById('searchTerm').addEventListener("keyup", function (event) { autocompleteMatch(event) });
+// document.getElementById('searchTerm').addEventListener("keyup", function (event) { autocompleteMatch(event) });
 
 /* La Fonction "autocompleteMatch" permettant d'affecter la saisie des caractères écrit (récupéré sur la
   barre de saisie) puis de chercher la liste des mots complété dans la base JSON appelant aussi
@@ -87,17 +85,9 @@ function initialize() {
 
   searchBtn.onclick = selectCategory;
 
-  // Reset
-  // searchBtn.addEventListener('click', function (event) {
-  //   event.preventDefault();
-  //   document.forms[0].reset()
-  //   updateDisplay();
-  // });
-
   // Les elements seront encapsulé dans la variable "categoryGroup" puis dans les conditions des filtres.
 
-  function selectCategory(e) {
-    e.preventDefault();
+  function selectCategory() {
     categoryGroup = [];
     finalGroup = [];
 
@@ -159,7 +149,7 @@ function initialize() {
     }
   }
 
-  // fonction permettant sucessivement de melanger le positonnement des affichages des elements dans un tableaux
+  // fonction permettant sucessivement de melanger le positonnement des affichages des elements dans un tableaux.
 
   function MelangeTableau(arr){
     for(var i =arr.length-1 ; i>0 ;i--){
@@ -167,6 +157,37 @@ function initialize() {
         [arr[i],arr[j]]=[arr[j],arr[i]];
     }
   }
+
+  // Déclenchement sur le choix
+
+  category.addEventListener('change', function (event) {
+    event.preventDefault();
+    selectCategory();
+    
+  });
+
+  nutriscore.addEventListener('change', function (event) {
+    event.preventDefault();
+    selectCategory();
+    
+  });
+
+  // searchTerm.addEventListener("keyup", function (event) { 
+  //   autocompleteMatch(event);
+  //   event.preventDefault();
+  // });
+  searchTerm.addEventListener('change', function (event) {
+    event.preventDefault();
+    updateDisplay();
+    
+  });
+
+  // Recherche le(s) produit(s) au click sur la barre de recherche (input).
+
+  // searchBtn.addEventListener('click', function (event) {
+  //   event.preventDefault();
+  //   document.forms[0].reset()
+  // });
 
   // fonction permettant d'ajouter les produits dans le html.
 

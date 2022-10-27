@@ -81,7 +81,7 @@ section {
     padding-bottom: 2%;
   }
 
-  select, input, button {
+  select, input, .btn-reset {
     height: 75px;
   }
 

@@ -14,16 +14,16 @@
     <![endif]-->
 </head>
 
-<body class="m-0 bg-info bg-opacity-50 ">
+<body class="m-0 bg-info bg-opacity-50">
   <header class="d-flex p-2 border border-start-0 border-dark bg-success bg-opacity-50 text-dark">
     <h1 class="text-center text-success w-100 pr-5 pl-5">Au jardin en boite</h1>
   </header>
   <div class="d-flex flex-column">
-    <aside class="d-flex flex-column p-2 bg-warning bg-opacity-50 border border-top-0 border-dark text-dark">
-      <form class="d-flex flex-column" autocomplete="off">
+    <aside class="d-flex flex-row justify-content-center p-2 bg-warning bg-opacity-50 border border-top-0 border-dark text-dark">
+      <form class="d-flex flex-column w-25" autocomplete="off">
         <div class="d-flex flex-column">
           <label class="mb-1" for="category">Choisissez une catégorie :</label>
-          <select class="ms-1 w-50 text-warning bg-success" id="category">
+          <select class="ms-1 w-100 text-warning bg-success" id="category">
             <option selected="">Tous</option>
             <option>Legumes</option>
             <option>Viande</option>
@@ -32,7 +32,7 @@
         </div>
         <div class="d-flex flex-column">
           <label class="mb-1" for="nutriscore">Choisissez un nutriscore :</label>
-          <select class="ms-1 w-50 text-warning bg-success" id="nutriscore">
+          <select class="ms-1 w-100 text-warning bg-success" id="nutriscore">
             <option selected="">Tous</option>
             <option>A</option>
             <option>B</option>
@@ -43,12 +43,12 @@
         </div>
         <div class="d-flex flex-column">
           <label class="mb-1" for="searchTerm">Entrez le terme de recherche:</label>
-          <input class="ms-1 w-50 p-2 text-warning bg-success" type="text" name="searchTerm" id="searchTerm" list="listeValeurs" placeholder="Exemple : haricots">
+          <input class="ms-1 w-100 p-2 text-warning bg-success" type="text" name="searchTerm" id="searchTerm" list="listeValeurs" placeholder="Exemple : haricots">
           <datalist id="listeValeurs">
           </datalist>
         </div>
         <div>
-          <button class="w-50 mt-1 p-3 text-warning bg-success rounded-4">Filtrer les résultats</button>
+          <button id="btn-reset" class="w-100 mt-1 p-3 text-warning bg-success rounded-4">Reset</button>
         </div>
       </form>
     </aside>
