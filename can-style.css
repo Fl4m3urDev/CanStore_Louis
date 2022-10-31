@@ -6,10 +6,10 @@ html {
     url('https://www.freepnglogos.com/uploads/food-png/food-png-transparent-images-png-only-28.png');
   background-repeat: repeat-x;
   background-position:
-    0% 35%,
-    0% 85%,
-    0% 130%,
-    0% 170%;
+    0% 15%,
+    0% 40%,
+    0% 65%,
+    0% 85%;
   background-size:
     250px,
     250px,
@@ -21,18 +21,18 @@ html {
 @keyframes para {
   0% {
     background-position:
-      0% 35%,
-      0% 85%,
-      0% 130%,
-      0% 170%;
+      0% 15%,
+      0% 40%,
+      0% 65%,
+      0% 85%;
   }
 
   100% {
     background-position:
-      100% 35%,
-      -100% 85%,
-      100% 130%,
-      -100% 170%;
+      100% 15%,
+      -100% 40%,
+      100% 65%,
+      -100% 85%;
   }
 }
 
@@ -69,290 +69,18 @@ h1, h2 {
 /* Pour les Mobiles */
 @media screen and (max-width: 1000px) {
 
-  html {
-    background-image: none;
-  }
-
   form {
     flex-direction: column;
     flex-wrap: wrap;
   }
 }
 
+@media screen and (max-width: 675px) {
+  
+  html {
+    background-image: none;
+  }
+
+}
+
 /*************************************************************************************************************/
-
-/*************
-Ancien Contenu
-*************/
-
-/* Générale */
-
-/* html {
-  font-family: 'Raleway', sans-serif;
-  font-size: 10px;
-  height: 100%;
-  background-color: hsla(200, 40%, 30%, .4);
-  background-image:
-    url('https://www.freepnglogos.com/uploads/corn-png/corn-the-best-mexican-fresh-produce-for-global-exports-5.png'),
-    url('https://www.freepnglogos.com/uploads/food-png/high-resolution-food-clipart-collection-19.png'),
-    url('https://www.freepnglogos.com/uploads/fruits-png/fruits-vegetables-artichoke-vector-graphic-pixabay-35.png'),
-    url('https://www.freepnglogos.com/uploads/food-png/food-png-transparent-images-png-only-28.png');
-  background-repeat: repeat-x;
-  background-position:
-    0% 35%,
-    0% 85%,
-    0% 130%,
-    0% 170%;
-  background-size:
-    250px,
-    250px,
-    250px,
-    250px;
-  animation: 25s para infinite linear;
-}
-
-@keyframes para {
-  0% {
-    background-position:
-      0% 35%,
-      0% 85%,
-      0% 130%,
-      0% 170%;
-  }
-
-  100% {
-    background-position:
-      100% 35%,
-      -100% 85%,
-      100% 130%,
-      -100% 170%;
-  }
-}
-
-body {
-  margin: 0 auto;
-} */
-
-/* Typographie */
-
-/* h1,
-h2 {
-  font-family: 'Cherry Swash', cursive;
-  margin: 0;
-  text-align: center;
-}
-
-h1 {
-  font-size: 50px;
-  background: url(icons/boite-de-conserve.png) no-repeat 0%, url(icons/boite-de-conserve.png) no-repeat 100%;
-  width: 100%;
-  background-size: 60px, 60px;
-  color: green;
-  text-shadow: 2px 2px 1px black;
-  font-size: 5rem;
-  padding-right: 50px;
-  padding-left: 50px;
-}
-
-h2 {
-  font-size: 2rem;
-  color: yellow;
-  text-align: right;
-  width: 175px;
-  position: absolute;
-  right: 4%;
-  z-index: 3000;
-  text-shadow: 2px 2px 1px black;
-  line-height: 2rem;
-  padding-top: 0.3rem;
-}
-
-span {
-  color: white;
-  padding: 4px;
-  border-radius: 25px;
-}
-
-p,
-label,
-input,
-select,
-button,
-li {
-  font-size: 1.5rem;
-}
-
-li {
-  line-height: 1.5;
-} */
-
-/* Style des Blocs */
-
-/* header,
-aside,
-main,
-footer {
-  padding: 20px;
-}
-
-header {
-  display: flex;
-  border: 1px solid black;
-  background-color: rgba(134, 253, 123, 0.5);
-}
-
-aside {
-  border-right: 2px solid black;
-  background-color: rgba(255, 255, 128, 0.5);
-  flex-basis: 20%;
-}
-
-body>div {
-  border: 1px solid black;
-  display: flex;
-  flex-direction: row;
-}
-
-footer {
-  border: 1px solid black;
-  background-color: rgba(255, 224, 87, 0.5);
-}
-
-main {
-  flex: 7;
-} */
-
-/* Style de formulaire */
-
-/* a {
-  text-decoration: none;
-  color: inherit;
-}
-
-aside {
-  display: flex;
-  flex-flow: column;
-  align-items: stretch;
-}
-
-aside div {
-  margin-bottom: 20px;
-}
-
-label,
-select,
-input {
-  display: block;
-}
-
-label {
-  margin-bottom: 5px;
-}
-
-select,
-input,
-button {
-  width: 100%;
-}
-
-input {
-  background-color: #1d680eac;
-  box-shadow: inset 1px 1px 1px white;
-  color: yellow;
-  border: none;
-  padding: 5px;
-}
-
-button {
-  background-color: #1d680eac;
-  color: yellow;
-  padding: 10px 2px;
-  width: 250px;
-  height: 70px;
-  border: none;
-  border-radius: 10px;
-  box-shadow: inset 1px 1px 2px white, inset -1px -1px 2px #ccc;
-} */
-
-/* Style des produits */
-
-/* main {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-}
-
-select {
-  background-color: #1d680eac;
-  color: yellow;
-}
-
-section {
-  width: 222px;
-  margin: 5px;
-  background-color: black;
-  position: relative;
-  height: 240px;
-  margin-bottom: 25px;
-}
-
-section img {
-  width: 100%;
-  display: block;
-  position: absolute;
-  bottom: 25px;
-}
-
-section p {
-  color: yellow;
-  background: rgb(4, 63, 4);
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
-  border-radius: 50%;
-  box-shadow: 2px 2px 1px yellow;
-  position: absolute;
-  right: 10px;
-  bottom: 19px;
-  z-index: 2000;
-}
-
-section h3 {
-  position: absolute;
-  bottom: 0px;
-  color: yellow;
-  margin: 0px;
-  margin-bottom: 5px;
-  width: 100%;
-  height: 15px;
-  text-align: center;
-}
-
-.legumes {
-  background: rgb(25, 80, 4) url(icons/vegetable.png) no-repeat 2px 2px;
-  background-size: 24px 24px;
-}
-
-.viande {
-  background: rgb(82, 143, 82) url(icons/meat.png) no-repeat 2px 2px;
-  background-size: 24px 24px;
-}
-
-.soupe {
-  background: rgb(26, 126, 48) url(icons/soup.png) no-repeat 2px 2px;
-  background-size: 24px 24px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-form div {
-  max-width: 250px;
-  height: 50px;
-  float: left;
-  padding: 10px;
-} */

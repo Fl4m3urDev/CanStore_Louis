@@ -35,7 +35,7 @@ function autocompleteMatch(event) {
   fetch('produits.json').then(function (response) {
     if (response.ok) {
       response.json().then(function (json) {
-        traiterReponse(json,saisie);
+        traiterReponse(json, saisie);
       });
     } else {
       console.log('La demande de requête pour produits.json a échoué ' + response.status + ': ' + response.statusText);
@@ -91,21 +91,21 @@ function initialize() {
     categoryGroup = [];
     finalGroup = [];
 
-      lastnutriscore = nutriscore.value
-      lastCategory = category.value;
-      lastSearch = searchTerm.value.trim();
+    lastnutriscore = nutriscore.value
+    lastCategory = category.value;
+    lastSearch = searchTerm.value.trim();
 
-      // Condition permettant de filtrer les produits selon la catégorie choisi.
+    // Condition permettant de filtrer les produits selon la catégorie choisi.
 
-      var lowerCaseType = category.value.toLowerCase();
-      for (var i = 0; i < products.length; i++) {
-        if (products[i].type === lowerCaseType || category.value === 'Tous') {
-          if (products[i].nutriscore === lastnutriscore || lastnutriscore === 'Tous'){
-            categoryGroup.push(products[i]);
-          }
+    var lowerCaseType = category.value.toLowerCase();
+    for (var i = 0; i < products.length; i++) {
+      if (products[i].type === lowerCaseType || category.value === 'Tous') {
+        if (products[i].nutriscore === lastnutriscore || lastnutriscore === 'Tous') {
+          categoryGroup.push(products[i]);
         }
       }
-        selectProducts();
+    }
+    selectProducts();
   }
 
   /* La fonction "selectProducts" est semi-inutile car il renvoit les elements vers la fonction "updateDisplay"
@@ -151,10 +151,10 @@ function initialize() {
 
   // fonction permettant sucessivement de melanger le positonnement des affichages des elements dans un tableaux.
 
-  function MelangeTableau(arr){
-    for(var i =arr.length-1 ; i>0 ;i--){
-        var j = Math.floor( Math.random() * (i + 1) );
-        [arr[i],arr[j]]=[arr[j],arr[i]];
+  function MelangeTableau(arr) {
+    for (var i = arr.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
     }
   }
 
@@ -163,29 +163,22 @@ function initialize() {
   category.addEventListener('change', function (event) {
     event.preventDefault();
     selectCategory();
-    
   });
 
   nutriscore.addEventListener('change', function (event) {
     event.preventDefault();
     selectCategory();
-    
   });
 
-  // searchTerm.addEventListener("keyup", function (event) { 
-  //   autocompleteMatch(event);
-  //   event.preventDefault();
-  // });
   searchTerm.addEventListener('change', function (event) {
     event.preventDefault();
-    updateDisplay();
-    
+    selectCategory();
   });
 
-  // Recherche le(s) produit(s) au click sur la barre de recherche (input).
-
+  // RESET
   searchBtn.addEventListener('click', function (event) {
     event.preventDefault();
+    initialize();
     document.forms[0].reset()
   });
 
@@ -200,18 +193,18 @@ function initialize() {
     var heading = document.createElement('h2');
     heading.setAttribute("class", "d-flex justify-content-center mt-1 fs-6 text-warning");
     var para = document.createElement('p');
-    para.setAttribute("class", "d-flex position-absolute text-warning p-2 pt-3 pb-3 bg-success border border-warning rounded-circle");
+    para.setAttribute("class", "d-flex card position-absolute text-warning p-3 px-2 mt-4 bg-success border border-warning rounded-circle");
     var image = document.createElement('img');
     image.setAttribute("class", "mb-2");
     var button_acheter = document.createElement('button');
-    button_acheter.setAttribute("class", "d-grid w-75 mx-auto text-center btn btn-outline-dark bg-warning")
+    button_acheter.setAttribute("class", "d-grid w-75 mx-auto p-3 text-center btn btn-outline-dark bg-warning")
     var txtnutriscore = document.createElement('h3')
-    txtnutriscore.setAttribute("class", "fs-5 text-warning ms-1 mt-3");
+    txtnutriscore.setAttribute("class", "fs-5 text-warning text-center ms-1 mt-3");
     var nutriscore = document.createElement('span')
     nutriscore.setAttribute("class", "text-dark");
-    
+
     section.setAttribute("class", product.type);
-    section.classList.add("mb-4")
+    section.classList.add("mb-4", "card");
 
     heading.textContent = product.nom.replace(product.nom.charAt(0), product.nom.charAt(0).toUpperCase());
 
@@ -228,21 +221,21 @@ function initialize() {
     nutriscore.textContent = product.nutriscore
 
     if (nutriscore.textContent == 'A') {
-    nutriscore.style.backgroundColor = ' #196f3d'
+      nutriscore.style.backgroundColor = ' #196f3d'
     }
     else if (nutriscore.textContent == 'B') {
-    nutriscore.style.backgroundColor = '#52be80'
+      nutriscore.style.backgroundColor = '#52be80'
     }
     else if (nutriscore.textContent == 'C') {
-    nutriscore.style.backgroundColor = ' #f1c40f' 
+      nutriscore.style.backgroundColor = ' #f1c40f'
     }
     else if (nutriscore.textContent == 'D') {
-    nutriscore.style.backgroundColor = '#dc7633'
+      nutriscore.style.backgroundColor = '#dc7633'
     }
     else if (nutriscore.textContent == 'E') {
-    nutriscore.style.backgroundColor = '#c0392b'
+      nutriscore.style.backgroundColor = '#c0392b'
     }
-     
+
     txtnutriscore.textContent = 'Nutriscore : '
 
     // ces variables (défini au-dessus) permettant d'ajouter les elements du produit dans le html.
@@ -253,7 +246,7 @@ function initialize() {
     section.appendChild(button_acheter);
     section.appendChild(txtnutriscore)
     txtnutriscore.appendChild(nutriscore)
-    
+
   }
 
 }
