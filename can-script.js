@@ -98,13 +98,15 @@ function initialize() {
     // Condition permettant de filtrer les produits selon la catégorie choisi.
 
     var lowerCaseType = category.value.toLowerCase();
-    for (var i = 0; i < products.length; i++) {
-      if (products[i].type === lowerCaseType || category.value === 'Tous') {
-        if (products[i].nutriscore === lastnutriscore || lastnutriscore === 'Tous') {
-          categoryGroup.push(products[i]);
+    products.forEach(products => {
+    // for (var i = 0; i < products.length; i++) {
+      if (products.type === lowerCaseType || category.value === 'Tous') {
+        if (products.nutriscore === lastnutriscore || lastnutriscore === 'Tous') {
+          categoryGroup.push(products);
         }
       }
-    }
+    });
+    // }
     selectProducts();
   }
 
@@ -118,11 +120,13 @@ function initialize() {
     } else {
       var lowerCaseSearchTerm = searchTerm.value.trim().toLowerCase();
 
-      for (var i = 0; i < categoryGroup.length; i++) {
-        if (categoryGroup[i].nom.indexOf(lowerCaseSearchTerm) !== -1) {
-          finalGroup.push(categoryGroup[i]);
+      products.forEach(categoryGroup => {
+      // for (var i = 0; i < categoryGroup.length; i++) {
+        if (categoryGroup.nom.indexOf(lowerCaseSearchTerm) !== -1 || lowerCaseSearchTerm === '') {
+          finalGroup.push(categoryGroup);
         }
-      }
+      // }
+    });
       updateDisplay();
     }
   }
@@ -179,6 +183,7 @@ function initialize() {
   searchBtn.addEventListener('click', function (event) {
     event.preventDefault();
     initialize();
+    videPanier();
     document.forms[0].reset()
   });
 
@@ -201,7 +206,7 @@ function initialize() {
     var txtnutriscore = document.createElement('h3')
     txtnutriscore.setAttribute("class", "fs-5 text-warning text-center ms-1 mt-3");
     var nutriscore = document.createElement('span')
-    nutriscore.setAttribute("class", "text-dark");
+    nutriscore.setAttribute("class", "d-inline rounded-pill p-1 text-dark ");
 
     section.setAttribute("class", product.type);
     section.classList.add("mb-4", "card");
@@ -214,6 +219,11 @@ function initialize() {
     image.alt = product.nom;
 
     button_acheter.textContent = "Acheter"
+
+    button_acheter.addEventListener('click', function (event) {
+      event.preventDefault();
+      ajouterPanier();
+    });
 
     /* variable "nutriscore" utilisé pour creer un text sur les produits +
     Condition pour mettre en couleur les nutriscores selon la lettre y compris son évaluation. */
@@ -250,3 +260,19 @@ function initialize() {
   }
 
 }
+
+  /* fonction permettant d'ajouter les produits aux paniers grâce à cette variable
+  servant à compter tous les produits selectionné. */
+  
+  var nbProduits = 0
+  var panier = document.getElementById('panier')
+  panier.innerHTML = (nbProduits);
+  function ajouterPanier() {
+      nbProduits += 1;
+      panier.innerHTML = "";
+      panier.innerHTML = nbProduits;
+  }
+  function videPanier() {
+    nbProduits = 0
+    panier.innerHTML = (nbProduits);
+  }
