@@ -51,6 +51,31 @@ h1, h2 {
   font-family: 'Cherry Swash', cursive;
 }
 
+.nutriscore_A {
+  color: rgb(249, 252, 250);
+  background-color: rgb(5, 99, 37);
+}
+
+.nutriscore_B {
+  color: rgb(2, 4, 20);
+  background-color: rgb(21, 230, 177);
+}
+
+.nutriscore_C {
+  color: rgb(4, 77, 28);
+  background-color: rgb(232, 248, 12);
+}
+
+.nutriscore_D {
+  color: rgb(249, 252, 250);
+  background-color: rgb(248, 184, 7);
+}
+
+.nutriscore_E {
+  color: rgb(249, 252, 250);
+  background-color: rgb(228, 126, 100);
+}
+
 .legumes {
   background: rgb(25, 80, 4) url(icons/vegetable.png) no-repeat 2px 2px;
   background-size: 24px 24px;

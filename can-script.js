@@ -119,6 +119,8 @@ function initialize() {
       updateDisplay();
     } else {
       var lowerCaseSearchTerm = searchTerm.value.trim().toLowerCase();
+      // var regex = new RegExp(categoryGroup, "i");
+      // var lowerCaseSearchTerm = searchTerm.value.trim().match(regex);
 
       products.forEach(categoryGroup => {
       // for (var i = 0; i < categoryGroup.length; i++) {
@@ -191,7 +193,7 @@ function initialize() {
 
   function showProduct(product) {
 
-    // déclaration de variables des elements qui composera le(s) produit(s).
+    // déclaration de variables des elements qui composera le(s) produit(s) + style avec bootstrap.
 
     var url = 'images/' + product.image;
     var section = document.createElement('section');
@@ -261,9 +263,9 @@ function initialize() {
 
 }
 
-  /* fonction permettant d'ajouter les produits aux paniers grâce à cette variable
+  /* fonction permettant d'ajouter les produits aux paniers grâce à cette variable "nbProduits"
   servant à compter tous les produits selectionné. */
-  
+
   var nbProduits = 0
   var panier = document.getElementById('panier')
   panier.innerHTML = (nbProduits);
@@ -272,6 +274,10 @@ function initialize() {
       panier.innerHTML = "";
       panier.innerHTML = nbProduits;
   }
+
+  /* fonction (Annexe) permettant de supprimer tous les produits ajouté auparavant
+  grâce à la fonction "ajouterPanier" qui a servi a compté les produits ajouté au panier. */
+
   function videPanier() {
     nbProduits = 0
     panier.innerHTML = (nbProduits);
