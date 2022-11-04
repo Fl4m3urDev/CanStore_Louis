@@ -6,7 +6,7 @@ var products;
 
 // la fonction "fetch" permet d'appeler le fichier (JSON) et permet d'eviter les erreurs.
 
-fetch('produits.json').then(function (response) {
+fetch('produits.php').then(function (response) {
   if (response.ok) {
     response.json().then(function (json) {
       products = json;
@@ -32,7 +32,7 @@ function autocompleteMatch(event) {
   if (!isNaN(saisie) || saisie.length < min_characters) {
     return [];
   }
-  fetch('produits.json').then(function (response) {
+  fetch('produits.php').then(function (response) {
     if (response.ok) {
       response.json().then(function (json) {
         traiterReponse(json, saisie);
@@ -215,7 +215,8 @@ function initialize() {
 
     heading.textContent = product.nom.replace(product.nom.charAt(0), product.nom.charAt(0).toUpperCase());
 
-    para.textContent = product.prix.toFixed(2) + ' €';
+    // para.textContent = product.prix.toFixed(2) + ' €';
+    para.textContent = product.prix + ' €';
 
     image.src = url;
     image.alt = product.nom;
