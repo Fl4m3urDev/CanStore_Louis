@@ -11,6 +11,7 @@ try {
     echo "Connexion à MySQL impossible : ", $e->getMessage();
     die();
 }
+
 //base de la requete
 $requete = "SELECT * FROM produits WHERE 1+1 ";
 // si une categorie choisie trier
