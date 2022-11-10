@@ -1,9 +1,9 @@
 html {
   background-image:
-    url('https://www.freepnglogos.com/uploads/corn-png/corn-the-best-mexican-fresh-produce-for-global-exports-5.png'),
-    url('https://www.freepnglogos.com/uploads/food-png/high-resolution-food-clipart-collection-19.png'),
-    url('https://www.freepnglogos.com/uploads/fruits-png/fruits-vegetables-artichoke-vector-graphic-pixabay-35.png'),
-    url('https://www.freepnglogos.com/uploads/food-png/food-png-transparent-images-png-only-28.png');
+    url('images/corn-the-best-mexican-fresh-produce-for-global-exports-5.png'),
+    url('images/high-resolution-food-clipart-collection-19.png'),
+    url('images/fruits-vegetables-artichoke-vector-graphic-pixabay-35.png'),
+    url('images/food-png-transparent-images-png-only-28.png');
   background-repeat: repeat-x;
   background-position:
     0% 15%,

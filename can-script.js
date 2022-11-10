@@ -85,29 +85,38 @@ function initialize() {
 
   searchBtn.onclick = selectCategory;
 
-  // Les elements seront encapsulé dans la variable "categoryGroup" puis dans les conditions des filtres.
+  // fonction permettant de faire le tri des produits selectionné.
 
-  function selectCategory() {
+  function selectCategory(e) {
+    if (e) e.preventDefault();//if : pas d'evenement au premier chargement
+    var myData = new FormData(document.querySelector('form'));
+    for (var x of myData) console.log(x);
+    fetch('produits_tri.php', { method: "POST", body: myData }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (json) {
+          finalGroup = json;
+        });
+      } else {
+        console.log('Network request for products.json failed with response ' + response.status + ': ' + response.statusText);
+      }
+    });
+
     categoryGroup = [];
     finalGroup = [];
 
-    lastnutriscore = nutriscore.value
-    lastCategory = category.value;
-    lastSearch = searchTerm.value.trim();
+      lastnutriscore = nutriscore.value
+      lastCategory = category.value;
+      lastSearch = searchTerm.value.trim();
 
-    // Condition permettant de filtrer les produits selon la catégorie choisi.
-
-    var lowerCaseType = category.value.toLowerCase();
-    products.forEach(products => {
-    // for (var i = 0; i < products.length; i++) {
-      if (products.type === lowerCaseType || category.value === 'Tous') {
-        if (products.nutriscore === lastnutriscore || lastnutriscore === 'Tous') {
-          categoryGroup.push(products);
+      var lowerCaseType = category.value.toLowerCase();
+      for (var i = 0; i < products.length; i++) {
+        if (products[i].type === lowerCaseType || category.value === 'Tous') {
+          if (products[i].nutriscore === lastnutriscore || lastnutriscore === 'Tous'){
+            categoryGroup.push(products[i]);
+          }
         }
       }
-    });
-    // }
-    selectProducts();
+        selectProducts();
   }
 
   /* La fonction "selectProducts" est semi-inutile car il renvoit les elements vers la fonction "updateDisplay"
@@ -118,16 +127,18 @@ function initialize() {
       finalGroup = categoryGroup;
       updateDisplay();
     } else {
-      var lowerCaseSearchTerm = searchTerm.value.trim().toLowerCase();
+      // var lowerCaseSearchTerm = searchTerm.value.trim().toLowerCase();
+      var stringSearchTerm = searchTerm.value.trim().toString();
       // var regex = new RegExp(categoryGroup, "i");
-      // var lowerCaseSearchTerm = searchTerm.value.trim().match(regex);
+      // var stringSearchTerm = searchTerm.value.trim().match(regex);
 
       products.forEach(categoryGroup => {
       // for (var i = 0; i < categoryGroup.length; i++) {
-        if (categoryGroup.nom.indexOf(lowerCaseSearchTerm) !== -1 || lowerCaseSearchTerm === '') {
+        // if (categoryGroup.nom.indexOf(lowerCaseSearchTerm) !== -1 || lowerCaseSearchTerm === '') {
+        if (categoryGroup.nom.indexOf(stringSearchTerm) !== -1 || stringSearchTerm === '') {
           finalGroup.push(categoryGroup);
         }
-      // }
+      //  }
     });
       updateDisplay();
     }
@@ -186,7 +197,7 @@ function initialize() {
     event.preventDefault();
     initialize();
     videPanier();
-    document.forms[0].reset()
+    document.forms[0].reload()
   });
 
   // fonction permettant d'ajouter les produits dans le html.
@@ -262,8 +273,6 @@ function initialize() {
 
   }
 
-}
-
   /* fonction permettant d'ajouter les produits aux paniers grâce à cette variable "nbProduits"
   servant à compter tous les produits selectionné. */
 
@@ -283,3 +292,4 @@ function initialize() {
     nbProduits = 0
     panier.innerHTML = (nbProduits);
   }
+}
