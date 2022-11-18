@@ -1,5 +1,10 @@
 <?php
 session_start();
+      if (!isset($_POST['addpanier'])) $_POST['addpanier'] = '0';
+      if (!isset($_SESSION['addpanier'])) $_SESSION['addpanier'] = '0';
+      if ($_POST['addpanier'] !== '0') {
+      $_SESSION['addpanier'] += 1;
+      };
 include('produits_tri.php');
 if (empty($_POST)) {
   $_POST['category'] = 'Tous';
@@ -81,12 +86,15 @@ if (empty($_POST)) {
         <div class="d-flex me-2">
           <button id="searchBtn" type="button" class="mt-4 py-3 px-5 text-warning bg-success rounded-4">Reset</button>
         </div>
+        <!-- Input caché -->
+        <input name="addpanier" type="hidden" value="0">
       </form>
       <div class="d-flex gap-2 justify-content-end">
         <img src="icons/panier.png" class="d-inline-block align-text-top" width="45" height="45" alt="panier">
       </div>
       <div class="d-flex gap-2 justify-content-end">
-        <input name="deletepanier" id="panier" class="text-danger" type="hidden" value="0" onclick="viderPanier()">
+        <!-- Affichage du nombres de produits acheté -->
+        <p><?php echo $_SESSION['addpanier']; ?></p>
       </div>
     </aside>
     <main class="d-flex flex-row flex-wrap justify-content-around p-3 col-12">
@@ -211,6 +219,7 @@ if (empty($_POST)) {
   function ajouterPanier() {
       document.forms[0].addpanier.value = "1";
       document.forms[0].submit();
+      console.log(addpanier);
   }
 
   /* fonction (Annexe) permettant de supprimer tous les produits ajouté auparavant
