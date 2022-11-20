@@ -108,7 +108,7 @@ if (empty($_POST)) {
           <!-- Affichage des produits -->
           <section class="' mb-4 card <?php echo $enregistrement->type; ?> '">
             <h2 class="d-flex justify-content-center mt-1 fs-6 text-warning"><?php echo ucfirst($enregistrement->nom); ?></h2>
-            <p class="d-flex card position-absolute text-warning p-3 px-2 mt-4 bg-success border border-warning rounded-circle"><?php echo number_format($enregistrement->prix, 2, ','); ?>€</p>
+            <p class="d-flex card position-absolute text-warning p-3 px-2 mt-4 bg-success border border-warning rounded-circle"><?php echo number_format($enregistrement->prix, 2, ','); ?> €</p>
             <img class="mb-2" src="images/<?php echo $enregistrement->image ?>" alt=" <?php echo $enregistrement->nom ?> ">
             <button name="addpanier" id="panier" class="d-grid w-75 mx-auto p-3 text-center btn btn-outline-dark bg-warning" onclick="ajouterPanier()">Acheter</button>
             <h3 class="fs-5 text-warning text-center ms-1 mt-3">Nutriscore :
@@ -142,94 +142,7 @@ if (empty($_POST)) {
     </ol>
     </p>
   </footer>
-  <script>
-    // recuperation de l'ID "searchTerm" qui fera appel à la fonction autocompleteMatch ayant un évènement raccordé.
-
-    document.getElementById('searchTerm').addEventListener("keyup", function(event) {
-      autocompleteMatch(event)
-    });
-
-    /* La Fonction "autocompleteMatch" permettant d'affecter la saisie des caractères écrit (récupéré sur la
-      barre de saisie) puis de chercher la liste des mots complété dans la base JSON appelant aussi
-      la fonction "traiterReponse" */
-
-    function autocompleteMatch(event) {
-      var input = event.target;
-      var saisie = input.value;
-      var min_characters = 1;
-      if (!isNaN(saisie) || saisie.length < min_characters) {
-        return [];
-      }
-      fetch('produits.php').then(function(response) {
-        if (response.ok) {
-          response.json().then(function(json) {
-            traiterReponse(json, saisie);
-          });
-        } else {
-          console.log('La demande de requête pour produits.php a échoué ' + response.status + ': ' + response.statusText);
-        }
-      });
-    }
-
-    /* La Fonction "traiterReponse" permettant de traiter la réponse de la saisi effectué précédement en affichant
-    les termes proposé et écrit dans la base php  */
-
-    function traiterReponse(data, saisie) {
-      var listeValeurs = document.getElementById('listeValeurs');
-      listeValeurs.innerHTML = "";
-      var reg = new RegExp(saisie, "i");
-      let terms = data.filter(term => term.nom.match(reg));
-      for (i = 0; i < terms.length; i++) {
-        var option = document.createElement('option');
-        option.value = terms[i].nom;
-        listeValeurs.appendChild(option);
-      }
-    }
-
-    // déclanche category
-    category.addEventListener('change', function(event) {
-      event.preventDefault();
-      document.forms[0].submit();
-    });
-
-    // déclanche nutriscore
-    nutriscore.addEventListener('change', function(event) {
-      event.preventDefault();
-      document.forms[0].submit();
-    });
-
-    // déclanche searchTerm
-    searchTerm.addEventListener('change', function(event) {
-      event.preventDefault();
-      document.forms[0].submit();
-    });
-
-    // RESET
-    document.getElementById("searchBtn").addEventListener('click', function(event) {
-      event.preventDefault();
-      document.forms[0].category.selectedIndex = 0;
-      document.forms[0].nutriscore.selectedIndex = 0;
-      document.forms[0].searchTerm.value = "";
-      document.forms[0].submit();
-    });
-
-      /* fonction permettant d'ajouter les produits aux paniers grâce à cette variable "nbProduits"
-  servant à compter tous les produits selectionné. */
-
-  function ajouterPanier() {
-      document.forms[0].addpanier.value = "1";
-      document.forms[0].submit();
-      console.log(addpanier);
-  }
-
-  /* fonction (Annexe) permettant de supprimer tous les produits ajouté auparavant
-  grâce à la fonction "ajouterPanier" qui a servi a compté les produits ajouté au panier. */
-
-  function videPanier() {
-    document.forms[0].deletepanier.value.submit() = "0";
-    document.forms[0].submit();
-  }
-  </script>
+  <script src="can-script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
 </body>
